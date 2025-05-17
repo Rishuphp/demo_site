@@ -1,35 +1,26 @@
 <?php
 require 'config/function.php';
 
-if(isset($_POST['loginBtn']))
-{
+if (isset($_POST['loginBtn'])) {
     $email = validate($_POST['email']);
     $password = validate($_POST['password']);
 
-      //$email = filter_var($emailInput, FILTER_SANITIZE_EMAIL);
-      //$password = filter_var($passwordInput, FILTER_SANITIZE_STRING);
 
-    if($email != '' && $password != '')
-    {
-        // $query = "SELECT * FROM users WHERE email ='$email' AND password='$password' LIMIT 1 ";
+    if ($email != '' && $password != '') {
+
         $query = "SELECT * FROM users WHERE email ='$email'  LIMIT 1 ";
-        $result =mysqli_query($conn,$query);
+        $result = mysqli_query($conn, $query);
 
-        if($result)
-        {
-            if(mysqli_num_rows($result) ==1)
-            {
-                $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+        if ($result) {
+            if (mysqli_num_rows($result) == 1) {
+                $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                 $hashedPassword = $row['password'];
-                if(!password_verify($password,$hashedPassword)){
+                if (!password_verify($password, $hashedPassword)) {
                     redirect('login.php', 'Invalid Password!');
-
                 }
-                if($row['role'] == 'admin')
-                {
-                    if($row['is_ban'] == 1){
-                    redirect('login.php', 'Your account has been banned. Please contact admin');
-
+                if ($row['role'] == 'admin') {
+                    if ($row['is_ban'] == 1) {
+                        redirect('login.php', 'Your account has been banned. Please contact admin');
                     }
                     $_SESSION['auth'] = true;
                     $_SESSION['loggedInUserRole'] = $row['role'];
@@ -38,13 +29,10 @@ if(isset($_POST['loginBtn']))
                         'email' => $row['email']
                     ];
                     redirect('admin/index.php', 'Logged In Successfully');
-
-                }
-                else{
-                    if($row['is_ban'] == 1){
+                } else {
+                    if ($row['is_ban'] == 1) {
                         redirect('login.php', 'Your account has been banned. Please contact admin');
-    
-                        }
+                    }
                     $_SESSION['auth'] = true;
                     $_SESSION['loggedInUserRole'] = $row['role'];
                     $_SESSION['loggedInUser'] = [
@@ -52,23 +40,14 @@ if(isset($_POST['loginBtn']))
                         'email' => $row['email']
                     ];
                     redirect('index.php', 'Logged In Successfully');
-
                 }
+            } else {
+                redirect('login.php', 'Invalid Email Id!');
             }
-            else
-            {
-        redirect('login.php', 'Invalid Email Id!');
-
-            }
+        } else {
+            redirect('login.php', 'Somthing Went Wrong');
         }
-        else
-        {
-        redirect('login.php', 'Somthing Went Wrong');
-
-        }
-    } 
-    else{
+    } else {
         redirect('login.php', 'All fields are mandetory');
     }
 }
-?>

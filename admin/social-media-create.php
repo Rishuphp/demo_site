@@ -1,4 +1,4 @@
-<?php include('includes/header.php');?>
+<?php include('includes/header.php'); ?>
 
 <div class="row">
     <div class="col-md-12">
@@ -6,23 +6,23 @@
             <div class="card-header">
                 <h4>
                     Add Social Media
-                    <a href="social-media.php" class="btn btn-danger float-end">Back</a> 
+                    <a href="social-media.php" class="btn btn-danger float-end">Back</a>
                 </h4>
             </div>
             <div class="card-body">
-            <?= alertMessage(); ?>
+                <?= alertMessage(); ?>
                 <form action="code.php" method="POST">
                     <div class="mb-3">
                         <label>Social Media Name</label>
-                        <input type="next" name="name" required class="form-control"/>
+                        <input type="next" name="name" required class="form-control" />
                     </div>
                     <div class="mb-3">
                         <label>Social Media URL/LINK</label>
-                        <input type="next" name="url"required class="form-control"/>
+                        <input type="next" name="url" required class="form-control" />
                     </div>
                     <div class="mb-3">
                         <label>Status</label>
-                        <br/>
+                        <br />
                         <input type="checkbox" name="status" style="width: 30px;height: 30px;" />
                     </div>
                     <div class="mb-3 text-end">
@@ -33,5 +33,3 @@
         </div>
     </div>
 </div>
-
-

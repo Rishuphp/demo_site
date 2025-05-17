@@ -1,7 +1,7 @@
 <?php
 require 'config/function.php';
 
-if(isset($_POST['enquireBtn'])){
+if (isset($_POST['enquireBtn'])) {
 
     $name = validate($_POST['name']);
     $email = validate($_POST['email']);
@@ -10,13 +10,11 @@ if(isset($_POST['enquireBtn'])){
     $message = validate($_POST['message']);
 
     $query = "INSERT INTO enquires (name,email,phone,service,message) VALUES ('$name','$email','$phone','$service','$message')";
-    $result = mysqli_query($conn,$query);
+    $result = mysqli_query($conn, $query);
 
-    if($result){
-        redirect('thank-you.php','Thank you for contacting us. We will get back to you soon.');
-    }else{
-        redirect('thank-you.php','Something Went Wrong!');
-
+    if ($result) {
+        redirect('thank-you.php', 'Thank you for contacting us. We will get back to you soon.');
+    } else {
+        redirect('thank-you.php', 'Something Went Wrong!');
     }
 }
-?>

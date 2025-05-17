@@ -1,19 +1,19 @@
-<?php  
+<?php
 $pageTitle = "Contact Us";
 include('includes/header.php');
 ?>
 <div class="py-5 bg-secondary">
-<div class="container">
-    <h4 class="text-white text-center">Contact Us</h4>
-</div>
+    <div class="container">
+        <h4 class="text-white text-center">Contact Us</h4>
+    </div>
 </div>
 <div class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <?= alertMessage();?>
+                <?= alertMessage(); ?>
                 <div class="card card-body">
-            <form action="sendmail.php" method="POST">
+                    <form action="sendmail.php" method="POST">
                         <div class="mb-3">
                             <label>Name</label>
                             <input type="text" name="name" class="form-control">
@@ -28,7 +28,7 @@ include('includes/header.php');
                         </div>
                         <div class="mb-3">
                             <label>Service</label>
-                            <input type="text" name="service"  class="form-control">
+                            <input type="text" name="service" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label>Message / Comment</label>
@@ -37,20 +37,20 @@ include('includes/header.php');
                         <div class="mb-3">
                             <button type="submit" name="contactSubmit" class="btn w-100 btn-primary">Submit</button>
                         </div>
-                        </div>
-                    </form>
-                    
+                </div>
+                </form>
+
             </div>
             <div class="col-md-6">
-            <h4 class="footer-heading">Contact Information</h4>
-        <hr>
-        <p>Address: <?= webSetting('address') ?? ''; ?></p>
-        <p>Email: <?= webSetting('email1') ?? ''; ?>,<?= webSetting('email2') ?? ''; ?></p>
-        <p>Phone No: <?= webSetting('phone1') ?? ''; ?>,<?= webSetting('phone2') ?? ''; ?></p>
+                <h4 class="footer-heading">Contact Information</h4>
+                <hr>
+                <p>Address: <?= webSetting('address') ?? ''; ?></p>
+                <p>Email: <?= webSetting('email1') ?? ''; ?>,<?= webSetting('email2') ?? ''; ?></p>
+                <p>Phone No: <?= webSetting('phone1') ?? ''; ?>,<?= webSetting('phone2') ?? ''; ?></p>
 
             </div>
         </div>
     </div>
 </div>
 
-<?php  include('includes/footer.php');?>
+<?php include('includes/footer.php'); ?>

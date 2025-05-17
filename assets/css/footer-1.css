@@ -1,6 +1,3 @@
-/*******************************/
-/********* Footer 1 CSS ********/
-/*******************************/
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -87,7 +84,7 @@ a:focus {
 
 .footer .footer-about h3,
 .footer .footer-link h3,
-.footer .footer-contact h3{
+.footer .footer-contact h3 {
     position: relative;
     margin-bottom: 20px;
     font-size: 22px;
@@ -195,6 +192,7 @@ a:focus {
 }
 
 @media (max-width: 768px) {
+
     .footer .copyright p,
     .footer .copyright .col-md-6:last-child p {
         margin: 5px 0;

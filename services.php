@@ -3,9 +3,9 @@
 include('includes/header.php')
 ?>
 <div class="py-5 bg-secondary">
-<div class="container">
-    <h4 class="text-white text-center"><?= webSetting5('title');?></h4>
-</div>
+    <div class="container">
+        <h4 class="text-white text-center"><?= webSetting5('title'); ?></h4>
+    </div>
 </div>
 
 <div class="py-5 bg-light">
@@ -13,52 +13,52 @@ include('includes/header.php')
         <div class="row">
             <?php
             $serviceQuery = "SELECT * FROM services WHERE status='0'";
-            $result = mysqli_query($conn,$serviceQuery);
-            if($result){
-                if(mysqli_num_rows($result) > 0){
-                    foreach($result as $row){
+            $result = mysqli_query($conn, $serviceQuery);
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                    foreach ($result as $row) {
 
-                        ?>
-                         <div class="col-md-3 mb-3">
-                <div class="card shadow-sm">
-                    <?php if($row['image'] != '') : ?>
-                        <img src="<?= $row['image'];?>" class="w-100 rounded" alt="Img" style="min-height:200px;max-height:200px;"/>
-                    <?php else: ?>
-                        <img src="assets/images/no-img.jpg" class="w-100 rounded" alt="Img"style="min-height:200px;max-height:200px;"/>
-                    <?php endif; ?>
+            ?>
+                        <div class="col-md-3 mb-3">
+                            <div class="card shadow-sm">
+                                <?php if ($row['image'] != '') : ?>
+                                    <img src="<?= $row['image']; ?>" class="w-100 rounded" alt="Img" style="min-height:200px;max-height:200px;" />
+                                <?php else: ?>
+                                    <img src="assets/images/no-img.jpg" class="w-100 rounded" alt="Img" style="min-height:200px;max-height:200px;" />
+                                <?php endif; ?>
 
-                    <div class="card-body">
-                        <h5><?= $row['name'];?></h5>
-                        <p>
-                        <?= $row['small_description'];?>
-                        </p>
-                    </div>
-                    <a href="service.php?slug=<?= $row['slug'];?>" class="text-primary">Read More</a>
-                </div>
-            </div>
-                        <?php
+                                <div class="card-body">
+                                    <h5><?= $row['name']; ?></h5>
+                                    <p>
+                                        <?= $row['small_description']; ?>
+                                    </p>
+                                </div>
+                                <a href="service.php?slug=<?= $row['slug']; ?>" class="text-primary">Read More</a>
+                            </div>
+                        </div>
+                    <?php
                     }
-                }else{
+                } else {
                     ?>
                     <div class="col-md-12">
-                    <h5>No Service Available</h5>
+                        <h5>No Service Available</h5>
                     </div>
-                
+
                 <?php
-            }
-            }else{
+                }
+            } else {
                 ?>
-                    <div class="col-md-12">
+                <div class="col-md-12">
                     <h5>Something Went Wrong!</h5>
-                    </div>
-                
-                <?php
-                
+                </div>
+
+            <?php
+
             }
             ?>
-    
+
         </div>
     </div>
 </div>
 
-<?php  include('includes/footer.php')?>
+<?php include('includes/footer.php') ?>

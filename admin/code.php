@@ -20,8 +20,7 @@ if (isset($_POST['saveUser'])) {
             'role' => $role
         ];
         $result = insert('users', $data);
-        //    $query = "INSERT INTO users (name,phone,email,password,is_ban,role) VALUES ('$name','$phone','$email','$hashedPassword','$is_ban','$role')";
-        //    $result = mysqli_query($conn,$query);
+
 
         if ($result) {
             redirect('users.php', 'User/Admin Added Successfully');
@@ -252,15 +251,15 @@ if (isset($_POST['homesetting'])) {
     $slug = validate($_POST['slug']);
     $heading_description = validate($_POST['heading_description']);
     $heading = validate($_POST['heading']);
-    
+
     $settingId = validate($_POST['settingId']);
     if ($_FILES['image']['size'] > 0) {
         $image = $_FILES['image']['name'];
-       
+
         $imageFileTypes = strtolower(pathinfo($image, PATHINFO_EXTENSION));
-        
-       
-        
+
+
+
         if ($imageFileTypes != 'jpg' && $imageFileTypes != 'jpeg' && $imageFileTypes != 'png') {
             redirect('homepage.php', 'Sorry only JPG, JPEG, PNG images only');
         }
@@ -274,11 +273,11 @@ if (isset($_POST['homesetting'])) {
     }
     if ($_FILES['image2']['size'] > 0) {
         $image2 = $_FILES['image2']['name'];
-       
+
         $imageFileTypes = strtolower(pathinfo($image2, PATHINFO_EXTENSION));
-        
-       
-        
+
+
+
         if ($imageFileTypes != 'jpg' && $imageFileTypes != 'jpeg' && $imageFileTypes != 'png') {
             redirect('homepage.php', 'Sorry only JPG, JPEG, PNG images only');
         }
@@ -292,11 +291,11 @@ if (isset($_POST['homesetting'])) {
     }
     if ($_FILES['image3']['size'] > 0) {
         $image3 = $_FILES['image3']['name'];
-       
+
         $imageFileTypes = strtolower(pathinfo($image3, PATHINFO_EXTENSION));
-        
-       
-        
+
+
+
         if ($imageFileTypes != 'jpg' && $imageFileTypes != 'jpeg' && $imageFileTypes != 'png') {
             redirect('homepage.php', 'Sorry only JPG, JPEG, PNG images only');
         }
@@ -308,17 +307,16 @@ if (isset($_POST['homesetting'])) {
     } else {
         $finalImage3 = NULL;
     }
-   
+
     if ($settingId == 'insert') {
         $query = "INSERT INTO  bannerimg (title,slug,heading_description,heading,image,image2,image3) 
     VALUES ('$title','$slug','$heading_description','$heading','$finalImage','$finalImage2','$finalImage3')";
         $result = mysqli_query($conn, $query);
-    
     }
-   
-    
+
+
     if (is_numeric($settingId)) {
-    $query = "UPDATE bannerimg SET title='$title',
+        $query = "UPDATE bannerimg SET title='$title',
 
 slug='$slug',
 heading_description='$heading_description',
@@ -328,9 +326,9 @@ image2='$finalImage2',
 image3='$finalImage3'
 
 WHERE id='$settingId'";
-    $result = mysqli_query($conn, $query);
+        $result = mysqli_query($conn, $query);
     }
-  
+
     if ($result) {
         if ($_FILES['image']['size'] > 0) {
             move_uploaded_file($_FILES['image']['tmp_name'], $path . $filename);
@@ -349,7 +347,7 @@ WHERE id='$settingId'";
 if (isset($_POST['aboutsetting'])) {
     $title = validate($_POST['title']);
     $slug = validate($_POST['slug']);
- 
+
     $paragraph = validate($_POST['paragraph']);
     $settingId = validate($_POST['settingId']);
     if ($_FILES['image']['size'] > 0) {
@@ -372,7 +370,7 @@ if (isset($_POST['aboutsetting'])) {
     VALUES ('$title','$paragraph','$finalImage')";
         $result = mysqli_query($conn, $query);
     }
-     if ($_FILES['image']['size'] > 0) {
+    if ($_FILES['image']['size'] > 0) {
         $image = $_FILES['image']['name'];
         $imageFileTypes = strtolower(pathinfo($image, PATHINFO_EXTENSION));
         if ($imageFileTypes != 'jpg' && $imageFileTypes != 'jpeg' && $imageFileTypes != 'png') {
@@ -392,8 +390,7 @@ if (isset($_POST['aboutsetting'])) {
         $finalImage =  $setting['data']['image'];
     }
 
-    if (is_numeric($settingId))
-     {
+    if (is_numeric($settingId)) {
         $query = "UPDATE about_us SET title='$title',
     
     
@@ -404,7 +401,7 @@ if (isset($_POST['aboutsetting'])) {
     WHERE id='$settingId'";
         $result = mysqli_query($conn, $query);
     }
-    
+
     if ($result) {
         if ($_FILES['image']['size'] > 0) {
             move_uploaded_file($_FILES['image']['tmp_name'], $path . $filename);
@@ -441,7 +438,7 @@ if (isset($_POST['headersetting'])) {
     VALUES ('$title','$navbar1','$navbar2','$navbar3','$navbar4','$finalImage')";
         $result = mysqli_query($conn, $query);
     }
-    
+
     if (is_numeric($settingId)) {
         $query = "UPDATE header SET title='$title',
     
@@ -454,7 +451,7 @@ if (isset($_POST['headersetting'])) {
     WHERE id='$settingId'";
         $result = mysqli_query($conn, $query);
     }
-    
+
     if ($result) {
         if ($_FILES['logo']['size'] > 0) {
             move_uploaded_file($_FILES['logo']['tmp_name'], $path . $filename);
@@ -466,25 +463,25 @@ if (isset($_POST['headersetting'])) {
 }
 if (isset($_POST['servicesetting'])) {
     $title = validate($_POST['title']);
-    
- 
-   
+
+
+
     $settingId = validate($_POST['settingId']);
-   
+
     if ($settingId == 'insert') {
         $query = "INSERT INTO  services_title (title) 
     VALUES ('$title')";
         $result = mysqli_query($conn, $query);
     }
-    
+
     if (is_numeric($settingId)) {
         $query = "UPDATE services_title SET title='$title'
     WHERE id='$settingId'";
         $result = mysqli_query($conn, $query);
     }
-    
+
     if ($result) {
-        
+
         redirect('services.php', 'Settings Saved');
     } else {
         redirect('services.php', 'Something Went Wrong.!');
@@ -495,18 +492,18 @@ if (isset($_POST['footersetting'])) {
     $heading2 = validate($_POST['heading2']);
     $heading3 = validate($_POST['heading3']);
 
- 
+
     $settingId = validate($_POST['settingId']);
-   
-    
-    
+
+
+
 
     if ($settingId == 'insert') {
         $query = "INSERT INTO  footer (footer_title1,footer_title2,footer_title3) 
     VALUES ('$heading1','$heading2','$heading3')";
         $result = mysqli_query($conn, $query);
     }
-    
+
     if (is_numeric($settingId)) {
         $query = "UPDATE footer SET footer_title1='$heading1',
     
@@ -518,12 +515,11 @@ if (isset($_POST['footersetting'])) {
     WHERE id='$settingId'";
         $result = mysqli_query($conn, $query);
     }
-    
+
     if ($result) {
-       
+
         redirect('footer_page.php', 'Settings Saved');
     } else {
         redirect('footer_page.php', 'Something Went Wrong.!');
     }
 }
-?>

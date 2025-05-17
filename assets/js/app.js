@@ -54,8 +54,8 @@ function showSlider(type) {
         nextBtn.click()
     }, timeAutoNext)
 
-    resetTimeAnimation() // Reset the running time animation
+    resetTimeAnimation() 
 }
 
-// Start the initial animation 
+
 resetTimeAnimation()

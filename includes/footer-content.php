@@ -41,7 +41,7 @@
                             }
                         } ?>
                         <div class="footer-link">
-                            <h3><?= webSetting6('footer_title1')?></h3>
+                            <h3><?= webSetting6('footer_title1') ?></h3>
                             <?php
                             $socialMedia = getAll('social_medias');
                             if ($socialMedia) {
@@ -68,7 +68,7 @@
                             }
                         } ?>
                         <div class="footer-link">
-                            <h3><?=webSetting6('footer_title2')?></h3>
+                            <h3><?= webSetting6('footer_title2') ?></h3>
                             <a href="index.php"><?= webSetting4('navbar1'); ?></a>
                             <a href="about-us.php"><?= webSetting4('navbar2'); ?></a>
                             <a href="services.php"><?= webSetting4('navbar3'); ?></a>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="footer-contact">
-                            <h3><?=webSetting6('footer_title3')?></h3>
+                            <h3><?= webSetting6('footer_title3') ?></h3>
                             <p><i class="fa fa-map-marker-alt"></i><?= webSetting('address') ?? ''; ?></p>
                             <p><i class="fa fa-phone-alt"></i><?= webSetting('phone1') ?? ''; ?></p>
                             <p><i class="fa fa-envelope"></i><?= webSetting('email1') ?? ''; ?></p>
