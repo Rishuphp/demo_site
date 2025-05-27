@@ -5,18 +5,17 @@
 
 
 
- <div class="container">
      <div class="navigation">
          <ul>
              <li>
                  <a href="index.php">
 
                      <span class="icon">
-                         <ion-icon name="logo-apple"></ion-icon>
-                     </span>
-                     <span class="title">Brand Name</span>
-                 </a>
-             </li>
+                         <img src="./assets/imgs/logo.png" class="col-md-3" width="40" >
+                         <h5>BYTOSOFT</h5>
+                        </span>
+                    </a>
+                </li>
 
              <li>
                  <a href="index.php">

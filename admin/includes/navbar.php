@@ -1,18 +1,12 @@
-<div class="container">
+
     <div class="main">
         <div class="topbar">
             <div class="toggle">
                 <ion-icon name="menu-outline"></ion-icon>
+                <img src=./assets/imgs/menu.png class="col-md-5"  width="30">
             </div>
 
-            <div class="search">
-                <label>
-                    <input type="text" placeholder="Search here">
-                    <ion-icon name="search-outline"></ion-icon>
-                </label>
-            </div>
+            
 
-            <div class="user">
-                <img src="assets/imgs/customer01.jpg" alt="">
-            </div>
+          
         </div>

@@ -92,7 +92,7 @@ include('includes/header.php');
             </div>
             <div class="mb-1">
                 <label>Service</label>
-                <input type="text" name="service" readonly value="<?= $rowData['name']; ?>" class="form-control">
+                <input type="text" name="service"  class="form-control">
             </div>
             <div class="mb-1">
                 <label>Message / Comment</label>

@@ -82,7 +82,7 @@
 
                                         <td>
                                             <a href="enquiries-view.php?id=<?= $item['id']; ?>" class="btn mb-0 btn-info btn-sm">View</a>
-                                            <a href="services-delete.php?id=<?= $item['id']; ?>" class="btn btn-danger btn-sm mx-2 mb-0" onclick="return confirm('Are you sure you want to delete this data?')">Delete</a>
+                                            <a href="enquiries-delete.php?id=<?= $item['id']; ?>" class="btn btn-danger btn-sm mx-2 mb-0" onclick="return confirm('Are you sure you want to delete this data?')">Delete</a>
                                         </td>
 
                                     </tr>
